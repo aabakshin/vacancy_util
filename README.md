@@ -9,3 +9,54 @@
 - запись в внешний файл внутренней структуры в отформатированном виде
 - вывод в стандартный поток вывода содержимого входного файла в виде отформатированного списка
 
+## Состав проекта
+
+### /
+- `binaries`: Содержит исполняемый модуль и его код, а также Makefile для сборки
+- `includes`: Содержит заголовочные файлы модулей для проекта
+- `input_files`: Содержит входной файл с отформатированными строками
+- `libs`: Содержит исходные коды и объектные файлы модулей для проекта
+- `output_files`: Содержит целевой файл также с отформатированными строками
+
+## Запуск проекта
+Проект собирался под Linux Mint 20.3, версия ядра Linux: 5.4.0-148-generic, архитектура: x86-64
+Для запуска проекта необходимо:
+- Установить SSH-сервер:
+	```
+	$ sudo apt update
+	$ sudo apt upgrade
+	```
+
+	```
+	$ sudo apt install openssh-server
+	```
+
+	```
+	$ systemctl status ssh
+	```
+	Если всё настроено правильно, то должна быть надпись о том, что сервер работает
+
+- Настроить ssh-туннель с github-сервером:
+	1. Создание нового ключа SSH и привязка к ssh-agent:
+	```
+	https://docs.github.com/ru/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
+	```
+	2. Добавление нового ключа SSH в учётную запись GitHub:
+	```
+	https://docs.github.com/ru/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account
+	```
+	3. Проверка работы SSH-соединения:
+	```
+	$ ssh -T git@github.com
+	```
+
+- Клонировать репозиторий:
+	```
+	git clone git@github.com:aabakshin/vacancy_util.git
+	```
+
+- Собрать бинарник утилиты: Перейти в директорию `/binaries/`. Ввести команду `make start`
+
+При необходимости пересборки проекта можно выполнить в директории `/binaries/` команду `make clean`
+
+
