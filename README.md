@@ -53,7 +53,7 @@
 
 - Клонировать репозиторий:
 	```
-	git clone git@github.com:aabakshin/vacancy_util.git
+	$ git clone git@github.com:aabakshin/vacancy_util.git
 	```
 
 - Собрать бинарник утилиты: Перейти в директорию `/binaries/`. Ввести команду `make start`
